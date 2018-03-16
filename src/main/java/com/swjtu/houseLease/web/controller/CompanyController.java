@@ -23,8 +23,13 @@ public class CompanyController {
     @RequestMapping(value="/register", method = RequestMethod.POST)
     public JsonResult register(@RequestBody Company company) throws  Exception{
         System.out.println("注册信息：" + new Gson().toJson(company));
-        companyService.register(company);
-        return JsonResult.build(StatusCode.SUCCESS);
+        try{
+            companyService.register(company);
+            return JsonResult.build(StatusCode.SUCCESS);
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+            return JsonResult.customBuild(ex.getMessage());
+        }
     }
 
 //    @RequestMapping(value="/login", method = RequestMethod.POST)
