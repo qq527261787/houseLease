@@ -29,7 +29,7 @@ public class CompanyService {
         }
         //密码不正确
         if(!obj.getPassword().equals(company.getPassword())){
-            throw  new PasswdIncorException();
+            throw new CustomException("密码错误");
         }
         return obj;
     }
@@ -40,9 +40,6 @@ public class CompanyService {
      * @throws Exception
      */
     public void register(Company company) throws Exception{
-        System.out.println(123);
-        System.out.println(company.getCompanyNo());
-        System.out.println(company.getPassword());
         Company obj = companyDao.getByNo(company.getCompanyNo());
         //账号存在
         if(obj != null){

@@ -26,14 +26,14 @@ public class CompanyDao {
                 obj.setCompanyNo(rs.getString("companyno"));
                 obj.setFlagTrashed(rs.getBoolean("flagtrashed"));
                 obj.setFlagDeleted(rs.getBoolean("flagdeleted"));
-                obj.setRegDate(rs.getDate("regdate"));
+                obj.setRegDate(new java.util.Date(rs.getDate("regdate").getTime()));
                 obj.setDbName(rs.getString("dbname"));
                 obj.setRemark(rs.getString("remark"));
                 obj.setEmail(rs.getString("email"));
                 obj.setPassword(rs.getString("password"));
                 obj.setTel(rs.getString("tel"));
                 obj.setQq(rs.getString("qq"));
-                obj.setExpireDate(rs.getDate("expiredate"));
+                obj.setExpireDate(new java.util.Date(rs.getDate("expiredate").getTime()));
                 obj.setAddress(rs.getString("address"));
                 obj.setStoreCount(rs.getString("storecount"));
                 obj.setFlagGrant(rs.getBoolean("flaggrant"));
